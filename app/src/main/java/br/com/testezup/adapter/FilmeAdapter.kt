@@ -19,8 +19,8 @@ class ProdutoAdapter(
     // viewHolder com as views
     class FilmesViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         // views do layout
-        var tcodigo = view.findViewById<TextView>(R.id.codigo)
-        // f9a05b9f-8d77-41bb-ad7f-1d3bf7ed1cd0
+        var tcodigo = view.findViewById<TextView>(R.id.year)
+
     }
 
     override fun getItemCount() = this.filmes.size
@@ -33,7 +33,7 @@ class ProdutoAdapter(
     override fun onBindViewHolder(holder: FilmesViewHolder, position: Int) {
         val produto = filmes[position]
         val view = holder.itemView
-        holder.tcodigo.text = ""
+        holder.tcodigo.text = "TESTE"
         holder.itemView.setOnClickListener { onClick(produto) }
     }
 

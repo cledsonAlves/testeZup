@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment
 import android.support.v7.app.ActionBar
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import com.google.gson.Gson
@@ -64,6 +65,26 @@ fun AppCompatActivity.onClick(@IdRes viewId: Int, onClick: (v: android.view.View
         }
         val json = builder.create().toJson(this)
         return json
+    }
+
+    // Adiciona o fragment no layout
+    fun AppCompatActivity.addFragment(@IdRes layoutId: Int, fragment: Fragment) {
+        fragment.arguments = intent.extras
+        val ft = supportFragmentManager.beginTransaction()
+        ft.add(layoutId, fragment)
+        ft.commit()
+    }
+
+    // Configura a Toolbar
+    fun AppCompatActivity.setupToolbar(@IdRes id: Int, title: String? = null, upNavigation: Boolean = false): ActionBar {
+        val toolbar = findViewById<Toolbar>(id)
+        setSupportActionBar(toolbar)
+        if (title != null) {
+            supportActionBar?.title = title;
+        }
+        supportActionBar?.setDisplayHomeAsUpEnabled(upNavigation)
+        Log.d("filmes", "Up nav config em $upNavigation $supportActionBar")
+        return supportActionBar!!
     }
 
 
