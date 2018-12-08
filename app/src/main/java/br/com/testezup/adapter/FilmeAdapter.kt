@@ -18,8 +18,7 @@ class ProdutoAdapter(
 
     // viewHolder com as views
     class FilmesViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        // views do layout
-        var tcodigo = view.findViewById<TextView>(R.id.year)
+
 
     }
 
@@ -33,7 +32,6 @@ class ProdutoAdapter(
     override fun onBindViewHolder(holder: FilmesViewHolder, position: Int) {
         val produto = filmes[position]
         val view = holder.itemView
-        holder.tcodigo.text = "TESTE"
         holder.itemView.setOnClickListener { onClick(produto) }
     }
 

@@ -1,6 +1,7 @@
 package br.com.testezup.fragment;
 
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
@@ -22,24 +23,25 @@ public class FilmesFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_filmes, container, false);
         recyclerView = view.findViewById(R.id.recyclerView);
+        getFilmes();
         return view;
     }
 
-    @Override
-    public void onResume() {
-        super.onResume();
-        getFilmes();
-    }
 
     private void getFilmes() {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+                LinearLayoutManager layoutManager
+                        = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
+
+                recyclerView.setLayoutManager(layoutManager);
                 recyclerView.setItemAnimator(new DefaultItemAnimator());
                 recyclerView.setHasFixedSize(true);
                 List<FilmeModel> lista = FavoritosService.INSTANCE.getFilmes();
-                recyclerView.setAdapter(new FilmesAdapter(lista));
+                recyclerView.setAdapter(new FilmesAdapter(lista,getContext()));
+
+
             }
         }).start();
     }

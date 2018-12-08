@@ -3,42 +3,50 @@
         xmlns:tools="http://schemas.android.com/tools" android:id="@+id/card_view"
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="200dp"
+        android:layout_height="300dp"
         android:layout_margin="6dp"
         app:cardPreventCornerOverlap="false"
         app:cardUseCompatPadding="false"
-        app:cardCornerRadius="2dp"
+        app:cardCornerRadius="16dp"
         android:foreground="?attr/selectableItemBackground"
 
 >
     <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="match_parent"
             android:orientation="vertical">
 
+        <ImageView
+                 android:layout_marginTop="16dp"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                tools:srcCompat="@tools:sample/avatars"
+                android:id="@+id/imageViewPoster"/>
+
         <TextView
-                android:id="@+id/title"
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:text="11000"/>
+            android:id="@+id/title"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_marginStart="6dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="6dp"
+            android:text="PANICO NA FLORESTA" android:textStyle="bold"/>
 
         <TextView
                 android:id="@+id/year"
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
-                android:text="SAIA JOYALY"/>
+                android:layout_marginStart="6dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="6dp"
+                android:text="2018"
+                android:textStyle="bold"/>
 
-        <TextView
-                android:id="@+id/writer"
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:text="R$ 129.90"/>
-        <ImageView
 
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" tools:srcCompat="@tools:sample/avatars"
-                android:id="@+id/imageViewPoster"/>
+
+
+
 
 
     </LinearLayout>
