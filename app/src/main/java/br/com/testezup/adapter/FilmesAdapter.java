@@ -19,16 +19,21 @@ public class FilmesAdapter   extends RecyclerView.Adapter<FilmesAdapter.FilmesVi
     Context ctx;
 
     public static class FilmesViewHolder extends RecyclerView.ViewHolder {
-        public TextView year;
+        public TextView directors;
         public TextView title;
-        public TextView writer;
+        public TextView resume;
+        public TextView category;
+        public TextView amount_rating;
         public ImageView poster;
 
         public FilmesViewHolder(View view) {
             super(view);
-             title = view.findViewById(R.id.title);
-             year = view.findViewById(R.id.year);
-            poster = view.findViewById(R.id.imageViewPoster);
+             title = view.findViewById(R.id.tv_title);
+             directors = view.findViewById(R.id.tv_directors);
+            poster = view.findViewById(R.id.iv_banner);
+            category = view.findViewById(R.id.tv_category);
+            amount_rating = view.findViewById(R.id.tv_rating_amount);
+            resume = view.findViewById(R.id.tv_resume);
         }
     }
 
@@ -42,7 +47,7 @@ public class FilmesAdapter   extends RecyclerView.Adapter<FilmesAdapter.FilmesVi
                                                      int viewType) {
 
         View view =  LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.adapter_filme, parent, false);
+                .inflate(R.layout.movie_item, parent, false);
 
         FilmesViewHolder vh = new FilmesViewHolder(view);
         return vh;
@@ -51,7 +56,10 @@ public class FilmesAdapter   extends RecyclerView.Adapter<FilmesAdapter.FilmesVi
     @Override
     public void onBindViewHolder(final FilmesViewHolder holder, final int position) {
         holder.title.setText(filmes.get(position).getTitle());
-        holder.year.setText(filmes.get(position).getYear());
+        holder.directors.setText(filmes.get(position).getDirector());
+        holder.category.setText(filmes.get(position).getGenre());
+        holder.amount_rating.setText(filmes.get(position).getImdbVotes());
+        holder.resume.setText(filmes.get(position).getWriter());
         Picasso.with(ctx)
                 .load(filmes.get(position).getPoster())
                 .into(holder.poster);

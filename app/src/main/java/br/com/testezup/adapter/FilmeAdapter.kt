@@ -1,10 +1,9 @@
 package br.com.testezup.adapter
 
-import android.view.View
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import br.com.testezup.R
 import br.com.testezup.model.FilmeModel
 
@@ -24,7 +23,7 @@ class ProdutoAdapter(
 
     override fun getItemCount() = this.filmes.size
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FilmesViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.adapter_filme, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.movie_item, parent, false)
         val holder = FilmesViewHolder(view)
         return holder
     }

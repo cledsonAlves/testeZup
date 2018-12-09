@@ -33,7 +33,7 @@ public class FilmesFragment extends Fragment {
             @Override
             public void run() {
                 LinearLayoutManager layoutManager
-                        = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
+                        = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
 
                 recyclerView.setLayoutManager(layoutManager);
                 recyclerView.setItemAnimator(new DefaultItemAnimator());
